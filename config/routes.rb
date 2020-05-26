@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  scope '/admin' do
+    resources :stats, only: [:index]
+  end
+  
   resources :authors, only: %i[show index] do
     resources :posts, only: %i[show index new edit]
   end
